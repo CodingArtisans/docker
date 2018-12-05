@@ -2,7 +2,7 @@ version: "3"
 services:
   web:
     # replace username/repo:tag with your name and image details
-    image: houyingshi/get-started:part2
+    image: houyingshi/get-started
     deploy:
       replicas: 5
       resources:
