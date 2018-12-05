@@ -2,6 +2,7 @@ from flask import Flask
 from redis import Redis, RedisError
 import os
 import socket
+import traceback
 
 # Connect to Redis
 redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
@@ -13,7 +14,8 @@ def hello():
     try:
         visits = redis.incr("counter")
     except RedisError:
-        visits = "<i>cannot connect to Redis, counter disabled</i>"
+		s = traceback.format_exc()
+        visits = "<i>cannot connect to Redis, counter disabled</i>" + s.
 
     html = "<h3>Hello {name}! by Yingshi Hou</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
