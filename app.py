@@ -14,8 +14,8 @@ def hello():
     try:
         visits = redis.incr("counter")
     except RedisError:
-		s = traceback.format_exc()
-        visits = "<i>cannot connect to Redis, counter disabled</i>" + s.
+        s = traceback.format_exc()
+        visits = "<i>cannot connect to Redis, counter disabled</i>" + s
 
     html = "<h3>Hello {name}! by Yingshi Hou</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
